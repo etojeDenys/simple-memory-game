@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .card {
+            width: 100px;
+            height: 50px;
+            border: 1px solid black;
+
+            position: relative;
+
+            transform-style: preserve-3d;
+            transition: transform .5s;
+        }
+        .game {
+            display: inline-grid;
+            gap: 15px;
+
+            perspective: 1000px;
+        }
+
+        .pause{
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background-color: rgba(0,0,0,0.8);
+        }
+
+        .pause::after {
+            content: 'Paused';
+            color: #fff;
+        }
+
+        .card.flipped{
+            transform: rotateY(180deg);
+        }
+
+        .front-side{
+            background-color: bisque;
+        }
+
+        .back-side{
+            display: flex;
+            font-size: 30px;
+            justify-content: center;
+            align-items: center;
+
+            background-color: chocolate;
+
+            transform: rotateY(180deg);
+
+        }
+
+        .front-side,.back-side{
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+
+            backface-visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+    <button class="start">Start</button>
+    <button class="end">End</button>
+    <div class="game"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script type="module" src="./index.js"></script>
+</body>
+</html>
